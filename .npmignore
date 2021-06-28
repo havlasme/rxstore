@@ -1,0 +1,6 @@
+# intellij idea
+.idea
+
+# source code
+babel.config.js
+/src
