@@ -5,14 +5,14 @@ import { distinctUntilChanged, map, skip } from 'rxjs/operators'
  * Persist a rxstore state subject in the local storage.
  *
  * @author Tomáš Havlas <tomas@havlas.me>
- * @version 0.1.0
+ * @version 0.2.1
  *
  * @param {string} key
  * @param {*} subject$
  * @param {{ blacklist: string[], whitelist: string[] }} options
  * @return {*}
  */
-function persistStoreStateSubject (key, subject$, { blacklist, whitelist } = {}) {
+const persistStoreStateSubject = function (key, subject$, { blacklist, whitelist } = {}) {
     subject$.pipe(
         skip(1),
         map(whitelist ? pick(whitelist) : identity),

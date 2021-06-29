@@ -2,13 +2,13 @@
  * Rehydrate a rxstore state subject from the local storage.
  *
  * @author Tomáš Havlas <tomas@havlas.me>
- * @version 0.1.0
+ * @version 0.2.1
  *
  * @param {string} key
  * @param {*} defaultState
  * @return {*}
  */
-function rehydrateStoreStateSubject (key, defaultState = {}) {
+const rehydrateStoreStateSubject = function (key, defaultState = {}) {
     return {
         ...defaultState,
         ...JSON.parse(localStorage.getItem(`rxstore:${key}`) || {}),
