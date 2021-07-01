@@ -19,6 +19,9 @@
     "release": "semantic-release",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "semver": "^5.7.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.14.0",
     "@babel/core": "^7.14.0",
