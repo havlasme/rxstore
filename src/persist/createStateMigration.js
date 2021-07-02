@@ -12,7 +12,7 @@ import semver from 'semver'
  */
 const createStateMigration = function (migration) {
     return function (state) {
-        Object.entries(migration).sort(function ([a], [b]) {
+        return Object.entries(migration).sort(function ([a], [b]) {
             if (semver.gt(a, b)) return 1
             if (semver.lt(a, b)) return -1
             return 0
