@@ -1,6 +1,6 @@
 {
   "name": "@havlasme/rxstore",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "rxjs powered state management library",
   "keywords": [
     "rxstore",
