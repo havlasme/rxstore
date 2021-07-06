@@ -3,10 +3,6 @@ import { map, withLatestFrom } from 'rxjs/operators'
 /**
  * Bind a dispatch subject to a state subject.
  *
- * @author Tomáš Havlas <tomas@havlas.me>
- * @version 0.2.1
- * @since 0.2.0
- *
  * @param {*} dispatch$
  * @param {*} state$
  * @param {*} reduce

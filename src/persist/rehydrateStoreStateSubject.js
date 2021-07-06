@@ -3,9 +3,6 @@ import { omit } from 'ramda'
 /**
  * Rehydrate a rxstore state subject from the local storage.
  *
- * @author Tomáš Havlas <tomas@havlas.me>
- * @version 0.3.0
- *
  * @param {string} key
  * @param {*} defaultState
  * @param {{ migrate: function }}

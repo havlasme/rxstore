@@ -4,9 +4,6 @@ import useRxDispatch from './useRxDispatch'
 /**
  * The useRxCallback hook.
  *
- * @author Tomáš Havlas <tomas@havlas.me>
- * @version 0.1.0
- *
  * @param {*} subject$
  * @param {function} callback
  * @return {function}

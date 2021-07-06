@@ -4,9 +4,6 @@ import { distinctUntilChanged, map, skip } from 'rxjs/operators'
 /**
  * Persist a rxstore state subject in the local storage.
  *
- * @author Tomáš Havlas <tomas@havlas.me>
- * @version 0.3.0
- *
  * @param {string} key
  * @param {*} subject$
  * @param {{ blacklist: string[], version: string|null, whitelist: string[] }} options

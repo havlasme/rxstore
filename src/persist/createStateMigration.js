@@ -3,10 +3,6 @@ import semver from 'semver'
 /**
  * Create rxstore state migration.
  *
- * @author Tomáš Havlas <tomas@havlas.me>
- * @version 0.3.0
- * @since 0.3.0
- *
  * @param {*} migration
  * @return {function}
  */
