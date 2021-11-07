@@ -1,26 +1,18 @@
-import { useCallback, useEffect, useState } from 'react'
+import { identity } from 'rxjs'
+import useRxDispatch from './useRxDispatch'
+import useRxQuery from './useRxQuery'
 
 /**
  * The useRxState hook.
  *
  * @param {*} subject$
- * @param {*} initialValue
+ * @param {*} initialState
+ * @param {function} query
  * @return {[*, function]}
  */
-const useRxState = function (subject$, initialValue) {
-    const [state, set] = useState(initialValue)
-
-    const dispatch = useCallback(function (state) {
-        subject$.next(state)
-    }, [subject$])
-
-    useEffect(function () {
-        const subscription = subject$.subscribe(set)
-
-        return function () {
-            subscription.unsubscribe()
-        }
-    }, [set, subject$])
+const useRxState = function (subject$, initialState, query = identity) {
+    const state = useRxQuery(subject$, query, initialState)
+    const dispatch = useRxDispatch(subject$)
 
     return [state, dispatch]
 }
