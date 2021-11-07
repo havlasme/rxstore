@@ -6,14 +6,15 @@ import useRxDispatch from './useRxDispatch'
  *
  * @param {*} subject$
  * @param {function} callback
+ * @param {*} dependency
  * @return {function}
  */
-const useRxCallback = function (subject$, callback) {
+const useRxCallback = function (subject$, callback, dependency = []) {
     const dispatch = useRxDispatch(subject$)
 
     return useCallback(function (...rest) {
         dispatch(callback(...rest))
-    }, [callback, dispatch])
+    }, [...dependency, dispatch])
 }
 
 export default useRxCallback
