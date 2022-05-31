@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { identity } from 'rxjs'
 
 /**
@@ -7,18 +7,23 @@ import { identity } from 'rxjs'
  * @param {*} subject$
  * @param {function} query
  * @param {*|null} initialState
+ * @param {*} rest
  * @return {*|null}
  */
-const useRxQuery = function (subject$, query = identity, initialState = null) {
+const useRxQuery = function (subject$, query = identity, initialState = null, ...rest) {
     const [state, set] = useState(initialState)
 
+    const queryProxy = useCallback(function (subject$) {
+        return query(...rest, subject$)
+    }, [query, ...rest])
+
     useEffect(function () {
-        const subscription = query(subject$).subscribe(set)
+        const subscription = queryProxy(subject$).subscribe(set)
 
         return function () {
             subscription.unsubscribe()
         }
-    }, [query, set, subject$])
+    }, [queryProxy, set, subject$])
 
     return state
 }
