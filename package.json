@@ -41,8 +41,8 @@
     "semantic-release": "^17.4.0"
   },
   "peerDependencies": {
-    "ramda": "^0.27.0",
-    "react": "^16.0.0 || ^17.0.0",
+    "ramda": "^0.27.0 || ^0.28.0",
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "rxjs": "^6.0.0 || ^7.0.0"
   },
   "publishConfig": {
